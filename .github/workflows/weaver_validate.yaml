@@ -1,0 +1,25 @@
+name: Validate Examples
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-basic:
+    name: Validate Basic Example
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout
+        with:
+          persist-credentials: false
+
+      - name: Setup Weaver
+        uses: open-telemetry/weaver/.github/actions/setup-weaver
+
+      - name: Check model
+        run: weaver registry check -r ./model --diagnostic-format gh_workflow_command
+
+      - name: Resolve registry
+        run: weaver registry resolve -r ./model -o resolved.json
