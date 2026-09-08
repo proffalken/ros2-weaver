@@ -1,0 +1,8 @@
+name: ros2
+description: OTel signals for the ROS2 robotics framework
+semconv_version: 0.1.0
+schema_base_url: https://github.com/proffalken/ros2-weaver
+dependencies:
+  - name: otel
+    registry_path: https://github.com/open-telemetry/semantic-conventions/archive/refs/tags/v1.34.0.zip[model]
+

@@ -1,0 +1,25 @@
+groups:
+  - id: metric.ros2.node.messages_sent
+    type: metric
+    metric_name: ros2.node.messages_sent
+    stability: development
+    brief: How many messages have we put onto the queue?
+    instrument: counter
+    unit: "1"
+    attributes:
+      - ref: host.name                 # imported from OTEL semantic conventions
+        requirement_level: required    # requirement level redefined locally
+      - ref: host.arch                 # imported from OTEL semantic conventions
+        requirement_level: required    # requirement level redefined locally
+      - ref: ros2.node.namespace
+        requirement_level: required
+      - ref: ros2.node.name
+        requirement_level: required
+
+imports:
+  metrics:
+    - db.*                # import all metrics in the `db` namespace
+  entities:
+    - gcp.*               # import all entities in the `gcp` namespace
+  events:
+    - session.start       # import the `session.start` event

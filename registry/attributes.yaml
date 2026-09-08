@@ -1,0 +1,28 @@
+groups:
+  - id: registry.ros2
+    type: attribute_group
+    display_name: ROS2 Attributes
+    brief: Attributes used in the ROS2 applications and devices
+    attributes:
+      - id: ros2.node.namespace
+        type: string
+        brief: The namespace of the ROS2 Node generating the telemetry
+        stability: development
+        examples: ["demo_nodes_cpp", "demo_nodes_py"]
+      - id: ros2.node.name
+        type: string
+        brief: The name of the ROS2 Node generating the telemetry
+        stability: development
+        examples: ["talker", "listener"]
+      - ref: host.name
+      - ref: host.arch
+
+  - id: registry.otel_sdk
+    type: attribute_group
+    display_name: OTel Attributes
+    brief: Attributes used by the OpenTelemetry SDK.
+    attributes:
+      - ref: service.name
+      - ref: telemetry.sdk.language
+      - ref: telemetry.sdk.version
+      - ref: telemetry.sdk.name
