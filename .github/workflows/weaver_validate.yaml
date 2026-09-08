@@ -11,12 +11,12 @@ jobs:
     name: Validate Basic Example
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
         with:
           persist-credentials: false
 
       - name: Setup Weaver
-        uses: open-telemetry/weaver/.github/actions/setup-weaver
+        uses: open-telemetry/weaver/.github/actions/setup-weaver@38befce4bc68fe320d20f189465c93835ac20c12
 
       - name: Check model
         run: weaver registry check -r ./model --diagnostic-format gh_workflow_command
