@@ -15,11 +15,3 @@ groups:
         requirement_level: required
       - ref: ros2.node.name
         requirement_level: required
-
-imports:
-  metrics:
-    - db.*                # import all metrics in the `db` namespace
-  entities:
-    - gcp.*               # import all entities in the `gcp` namespace
-  events:
-    - session.start       # import the `session.start` event
